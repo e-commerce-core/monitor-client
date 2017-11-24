@@ -10,7 +10,6 @@ export function report(url, data) {
   const reportUrl = getReportUrl(url);
   // 优先使用sendBeacon
   if (window.navigator.sendBeacon) {
-    console.log(data);
     return window.navigator.sendBeacon(reportUrl, new FormData(data));
   }
   const rndKey = `report_img_${makeRndString()}`;

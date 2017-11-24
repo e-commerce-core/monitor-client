@@ -4,10 +4,10 @@ The web monitor system front js code.
 
 **Target**
 
-- [ ] Report page perfermance data
+- [x] Report page perfermance data
 - [ ] Report page resources perfermance data
-- [ ] Auto report the frontend errors(script error, request error eg.)
-- [ ] Report special errors by developers
+- [x] Auto report the frontend errors(script error, request error eg.)
+- [x] Report special errors by developers
 
 # Usage
 

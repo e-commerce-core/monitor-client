@@ -56,20 +56,20 @@
     </div>
   </div>
   <script>
-    WebMonitor.init({ id: 'xxx', url: 'http://localhost:8080/api/test' });
+    WebMonitor.init({ id: 'xxx', url: 'http://localhost:8080/api/test', reportException: true });
+    // console.log(def);
+    throw 'abc';
     (function () {
-      let vm = new Vue({
+      var vm = new Vue({
         el: '.container',
-        data() {
-          return {
-            startTime: ''
-          }
+        data: {
+          startTime: ''
         },
-        created() {
+        created: function () {
           this.startTime = Date.now()
           console.log('vue created:' + performance.now())
         },
-        mounted() {
+        mounted: function () {
           console.log(Date.now() - this.startTime)
           console.log('vue mounted:' + performance.now())
         }
