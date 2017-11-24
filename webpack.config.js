@@ -5,10 +5,12 @@ const isProd = process.env.NODE_ENV === 'production';
 
 const config = {
   entry: __dirname + '/src/index.js',
+  devtool: isProd ? 'source-map' : 'cheap-source-map',
   output: {
     path: __dirname + '/dist',
     filename: `monitor-client${isProd ? '.min' : ''}.js`,
     libraryTarget: 'umd',
+    library: 'WebMonitor',
     umdNamedDefine: true
   },
   module: {
@@ -18,6 +20,7 @@ const config = {
   },
   plugins: isProd ? [
     new webpack.optimize.UglifyJsPlugin({
+      sourceMap: true,
       output: { comments: false, },
       compress: { warnings: false }
     })

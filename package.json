@@ -5,7 +5,8 @@
   "main": "dist/monitor-client.js",
   "scripts": {
     "dev": "webpack --progress --watch",
-    "build": "webpack && cross-env NODE_ENV=production webpack"
+    "build:webpack": "webpack && cross-env NODE_ENV=production webpack",
+    "build": "rollup --config rollup.config.js && cross-env NODE_ENV=production rollup --config rollup.config.js"
   },
   "repository": {
     "type": "git",
@@ -26,6 +27,12 @@
     "babel-loader": "^7.1.1",
     "babel-preset-env": "^1.6.1",
     "cross-env": "^5.1.1",
+    "rollup": "^0.51.8",
+    "rollup-plugin-babel": "^3.0.2",
+    "rollup-plugin-node-resolve": "^3.0.0",
+    "rollup-plugin-sourcemaps": "^0.4.2",
+    "rollup-plugin-uglify": "^2.0.1",
+    "shelljs": "^0.7.8",
     "webpack": "^3.8.1"
   }
 }
