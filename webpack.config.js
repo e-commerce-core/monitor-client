@@ -1,35 +1,26 @@
-var webpack = require('webpack')
-var path = require('path')
+const path = require('path');
+const webpack = require('webpack');
 
-var config = {
-    entry: __dirname + '/lib/index.js',
-    output: {
-        path: __dirname + '/dist',
-        filename: 'index.js',
-        libraryTarget: 'umd',
-        umdNamedDefine: true
-    },
-    module: {
-        loaders: [
-            {
-                test: /\.js$/,
-                loader: 'babel-loader',
-                exclude: /node_modules/,
-                query: {
-                    presets: ['es2015', 'es2016', 'es2017']
-                }
-             },
-        ]
-    },
-    plugins: [
-        new webpack.optimize.UglifyJsPlugin({
-            output: {
-                comments: false,
-            },
-            compress: {
-                warnings: false
-            }
-        })
+const isProd = process.env.NODE_ENV === 'production';
+
+const config = {
+  entry: __dirname + '/src/index.js',
+  output: {
+    path: __dirname + '/dist',
+    filename: `monitor-client${isProd ? '.min' : ''}.js`,
+    libraryTarget: 'umd',
+    umdNamedDefine: true
+  },
+  module: {
+    loaders: [
+      { test: /\.js$/, loader: 'babel-loader', exclude: /node_modules/, query: { presets: ['env'] } }
     ]
+  },
+  plugins: isProd ? [
+    new webpack.optimize.UglifyJsPlugin({
+      output: { comments: false, },
+      compress: { warnings: false }
+    })
+  ] : []
 }
-module.exports = config
+module.exports = config;

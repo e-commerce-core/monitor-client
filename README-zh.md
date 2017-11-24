@@ -1,4 +1,4 @@
-# monitor-frontend [中文README](README-zh.md)
+# monitor-frontend [README](README.md)
 
 The web monitor system front js code.
 
