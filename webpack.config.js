@@ -24,6 +24,11 @@ const config = {
       output: { comments: false, },
       compress: { warnings: false }
     })
-  ] : []
+  ] : [],
+  devServer: {
+    host: 'localhost',
+    port: 7777,
+    open: true
+  }
 }
 module.exports = config;
